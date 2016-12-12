@@ -5,18 +5,6 @@ import ApiService from './utils/ApiService';
 import DinoList from './components/DinoList';
 
 class App extends Component {
-  // constructor() {
-  //   super();
-
-  //   ApiService.getDinos().then(res => {
-  //     this.state = {
-  //       dinos: res
-  //     };
-
-  //     console.log('got dinos', this.state.dinos);
-  //   });
-  // }
-
   componentDidMount() {
     ApiService.getDinos().then(res => {
       this.setState({

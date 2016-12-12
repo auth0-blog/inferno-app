@@ -1,5 +1,7 @@
 function getDinos() {
-  return fetch(`/api/dinosaurs`).then(_verifyResponse).catch(_handleError);
+  return fetch(`/api/dinosaurs`)
+    .then(_verifyResponse)
+    .catch(_handleError);
 }
 
 function _verifyResponse(res) {
