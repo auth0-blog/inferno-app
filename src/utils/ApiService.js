@@ -16,7 +16,7 @@ function _verifyResponse(res) {
   if (contentType && contentType.indexOf('application/json') !== -1) {
     return res.json();
   } else {
-    return _handleError({ message: 'Response was not JSON'});
+    _handleError({ message: 'Response was not JSON'});
   }
 }
 
