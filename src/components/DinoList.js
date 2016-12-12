@@ -1,6 +1,6 @@
 import Inferno, { linkEvent } from 'inferno';
 import Component from 'inferno-component';
-// import DinoDetail from './DinoDetail';
+import DinoDetail from './DinoDetail';
 import ApiService from './../utils/ApiService';
 
 class DinoList extends Component {
@@ -33,19 +33,12 @@ class DinoList extends Component {
             </ul>
           </div>
         </div>
-        
-        <div className="DinoList-detail panel panel-default col-sm-6">
-          {
-            this.state.detail ? (
-              <div className="panel-body">
-                <h1>{this.state.detail.name}</h1>
-              </div>
-            ) : (
-              <div className="loading">Loading...</div>
-            )
-          }
-          
-        </div>
+
+        {
+          this.state.detail ? (
+            <DinoDetail dino={this.state.detail} />
+          ) : ''
+        }
       </div>
     );
   }
