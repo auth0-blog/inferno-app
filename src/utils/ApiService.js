@@ -4,6 +4,12 @@ function getDinos() {
     .catch(_handleError);
 }
 
+function getDino(id) {
+  return fetch(`/api/dinosaur/${id}`)
+    .then(_verifyResponse)
+    .catch(_handleError);
+}
+
 function _verifyResponse(res) {
   let contentType = res.headers.get('content-type');
 
@@ -18,5 +24,5 @@ function _handleError(error) {
   throw error;
 }
 
-const ApiService = { getDinos };
+const ApiService = { getDinos, getDino };
 export default ApiService;
