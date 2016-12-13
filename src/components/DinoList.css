@@ -1,5 +1,9 @@
 /* src/components/DinoList.css */
 
-.DinoList-link {
+.DinoList a {
   cursor: pointer;
+}
+.DinoList a.active {
+  font-weight: bold;
+  text-decoration: underline;
 }

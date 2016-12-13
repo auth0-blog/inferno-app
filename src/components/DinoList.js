@@ -21,35 +21,39 @@ class DinoList extends Component {
    * Handle dinosaur listing click
    * 
    * @param {number} id
+   * @param {number} idx (index)
    */
-  getDinoById(id) {
+  getDinoById(id, idx) {
     // Set loading state to true while data is being fetched
+    // Set active state to index of clicked item
     this.setState({
-      loading: true
+      loading: true,
+      active: idx
     });
 
     // GET dino by ID
     // On resolve, set detail state and turn off loading
-    ApiService.getDino(id).then(res => {
-      this.setState({
-        detail: res,
-        loading: false
+    ApiService.getDino(id)
+      .then(res => {
+        this.setState({
+          detail: res,
+          loading: false
+        });
       });
-    });
   }
 
   render() {
     return(
       <div>
-        <div className="DinoList col-sm-4">
-          <ul>
+        <div className="col-sm-4">
+          <ul className="DinoList">
             {
               this.props.dinos.map((dino, idx) => (
                 <li key={idx}>
                   <a
-                    className="DinoList-link"
-                    onClick={linkEvent(this, () => this.getDinoById(dino.id))}>
-                    <strong>{dino.name}</strong>
+                    className={this.state.active === idx ? 'active' : ''}
+                    onClick={linkEvent(this, () => this.getDinoById(dino.id, idx))}>
+                    {dino.name}
                   </a>
                 </li>
               ))
