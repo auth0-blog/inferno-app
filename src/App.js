@@ -7,7 +7,7 @@ import './App.css';
 
 class App extends Component {
   componentDidMount() {
-    ApiService.getDinos()
+    ApiService.getDinoList()
       .then(res => {
         this.setState({
           dinos: res

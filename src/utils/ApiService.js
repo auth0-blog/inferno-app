@@ -1,4 +1,4 @@
-function getDinos() {
+function getDinoList() {
   return fetch(`/api/dinosaurs`)
     .then(_verifyResponse)
     .catch(_handleError);
@@ -24,5 +24,5 @@ function _handleError(error) {
   throw error;
 }
 
-const ApiService = { getDinos, getDino };
+const ApiService = { getDinoList, getDino };
 export default ApiService;

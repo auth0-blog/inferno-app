@@ -11,7 +11,7 @@ class DinoDetail extends Component {
           this.props.dino ? (
             <div className="list-group">
               <div className="list-group-item active">
-                <h3 className="list-group-item-heading">{dino.name}</h3>
+                <h3 className="list-group-item-heading text-center">{dino.name}</h3>
               </div>
               <div className="list-group-item">
                 <h4 className="list-group-item-heading">Pronunciation</h4>

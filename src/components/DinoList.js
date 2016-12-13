@@ -35,7 +35,9 @@ class DinoList extends Component {
             {
               this.props.dinos.map((dino, idx) => (
                 <li key={idx}>
-                  <a className="DinoList-link" onClick={linkEvent(this, () => this.getDinoById(dino.id))}>
+                  <a
+                    className="DinoList-link"
+                    onClick={linkEvent(this, () => this.getDinoById(dino.id))}>
                     <strong>{dino.name}</strong>
                   </a>
                 </li>
