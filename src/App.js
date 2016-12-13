@@ -11,8 +11,8 @@ class App extends Component {
       .then(res => {
         this.setState({
           dinos: res
+        });
       });
-    });
   }
 
   render() {

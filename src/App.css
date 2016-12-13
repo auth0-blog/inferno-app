@@ -1,3 +1,7 @@
+.App {
+  margin: 0 auto;
+  max-width: 1000px;
+}
 .loading {
   display: block;
   margin: 10px auto;

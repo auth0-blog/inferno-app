@@ -6,8 +6,8 @@ import './DinoList.css';
 import loading from './../assets/raptor-loading.gif';
 
 class DinoList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       loading: false
