@@ -17,12 +17,6 @@ class DinoList extends Component {
     };
   }
 
-  /**
-   * Handle dinosaur listing click
-   * 
-   * @param {number} id
-   * @param {number} idx (index)
-   */
   getDinoById(id, idx) {
     // Set loading state to true while data is being fetched
     // Set active state to index of clicked item
