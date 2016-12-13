@@ -4,6 +4,9 @@
   margin: 0 auto;
   max-width: 1000px;
 }
+.App h1 {
+  margin-bottom: 20px;
+}
 .loading {
   display: block;
   margin: 10px auto;

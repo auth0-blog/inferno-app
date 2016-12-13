@@ -8,7 +8,7 @@ class DinoDetail extends Component {
     let dino = this.props.dino;
 
     return(
-      <div className="DinoList col-sm-8">
+      <div className="DinoList col-sm-9">
         {
           this.props.dino ? (
             <div className="list-group">
@@ -44,7 +44,9 @@ class DinoDetail extends Component {
               </div>
             </div>
           ) : (
-            <p className="lead"><em>Select a dinosaur to see details.</em></p>
+            <p className="lead">
+              <em>Select a dinosaur to see details.</em>
+            </p>
           )
         }
       </div>
