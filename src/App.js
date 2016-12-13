@@ -3,7 +3,7 @@
 import Inferno from 'inferno';
 import Component from 'inferno-component';
 import ApiService from './utils/ApiService';
-import DinoList from './components/DinoList';
+import DinoList from './components/DinoList/DinoList';
 import loading from './assets/raptor-loading.gif';
 import './App.css';
 

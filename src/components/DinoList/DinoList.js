@@ -2,10 +2,10 @@
 
 import Inferno, { linkEvent } from 'inferno';
 import Component from 'inferno-component';
-import DinoDetail from './DinoDetail';
-import ApiService from './../utils/ApiService';
+import DinoDetail from './../DinoDetail/DinoDetail';
+import ApiService from './../../utils/ApiService';
 import './DinoList.css';
-import loading from './../assets/raptor-loading.gif';
+import loading from './../../assets/raptor-loading.gif';
 
 class DinoList extends Component {
   constructor(props) {
