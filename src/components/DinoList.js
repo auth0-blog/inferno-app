@@ -1,3 +1,5 @@
+// src/components/DinoList.js
+
 import Inferno, { linkEvent } from 'inferno';
 import Component from 'inferno-component';
 import DinoDetail from './DinoDetail';
@@ -9,16 +11,25 @@ class DinoList extends Component {
   constructor(props) {
     super(props);
 
+    // Set default loading state to false
     this.state = {
       loading: false
     };
   }
 
+  /**
+   * Handle dinosaur listing click
+   * 
+   * @param {number} id
+   */
   getDinoById(id) {
+    // Set loading state to true while data is being fetched
     this.setState({
       loading: true
     });
 
+    // GET dino by ID
+    // On resolve, set detail state and turn off loading
     ApiService.getDino(id).then(res => {
       this.setState({
         detail: res,

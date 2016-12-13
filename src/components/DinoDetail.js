@@ -1,3 +1,5 @@
+// src/components/DinoDetail.js
+
 import Inferno from 'inferno';
 import Component from 'inferno-component';
 
@@ -15,11 +17,17 @@ class DinoDetail extends Component {
               </div>
               <div className="list-group-item">
                 <h4 className="list-group-item-heading">Pronunciation</h4>
-                <p className="list-group-item-text">{dino.pronunciation} <em>({dino.meaningOfName})</em></p>
+                <p className="list-group-item-text">{dino.pronunciation}</p>
+              </div>
+              <div className="list-group-item">
+                <h4 className="list-group-item-heading">Meaning of Name</h4>
+                <p className="list-group-item-text">"{dino.meaningOfName}"</p>
               </div>
               <div className="list-group-item">
                 <h4 className="list-group-item-heading">Period</h4>
-                <p className="list-group-item-text">{dino.period} ({dino.mya} million years ago)</p>
+                <p className="list-group-item-text">
+                  {dino.period} ({dino.mya} million years ago)
+                </p>
               </div>
               <div className="list-group-item">
                 <h4 className="list-group-item-heading">Diet</h4>
@@ -39,7 +47,6 @@ class DinoDetail extends Component {
             <p className="lead"><em>Select a dinosaur to see details.</em></p>
           )
         }
-        
       </div>
     );
   }
