@@ -1,0 +1,12 @@
+/* src/components/User/User.css */
+
+.User {
+  display: inline-block;
+}
+.User img {
+  border-radius: 100px;
+  display: inline-block;
+  height: 36px;
+  margin-right: 6px;
+  width: 36px;
+}
