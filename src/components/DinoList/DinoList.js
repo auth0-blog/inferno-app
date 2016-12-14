@@ -7,13 +7,14 @@ import ApiService from './../../utils/ApiService';
 import './DinoList.css';
 import loading from './../../assets/raptor-loading.gif';
 
-function getDinoById(obj) {
-  const instance = obj.instance;
-  const id = obj.dinoId;
-
+/* 
+  This function is pulled out of the class to 
+  demonstrate how we could easily use third-party APIs
+*/
+function getDinoById(id) {
   // Set loading state to true while data is being fetched
   // Set active state to index of clicked item
-  instance.setState({
+  this.setState({
     loading: true,
     active: id
   });
@@ -22,7 +23,7 @@ function getDinoById(obj) {
   // On resolve, set detail state and turn off loading
   ApiService.getDino(id)
     .then(res => {
-      instance.setState({
+      this.setState({
         detail: res,
         loading: false
       });
@@ -37,19 +38,22 @@ class DinoList extends Component {
     this.state = {
       loading: false
     };
+
+    // Bind the get dino function to pass 'this' context for setState
+    this.getDinoById = getDinoById.bind(this);
   }
 
   render(props, state) {
     return(
-      <div>
+      <div className="DinoList">
         <div className="col-sm-3">
-          <ul className="DinoList">
+          <ul className="DinoList-list">
             {
-              props.dinos.map((dino, idx) => (
-                <li key={idx}>
+              props.dinos.map((dino) => (
+                <li key={dino.id}>
                   <a
                     className={state.active === dino.id ? 'active' : ''}
-                    onClick={linkEvent({instance: this, dinoId: dino.id}, getDinoById)}>
+                    onClick={linkEvent(dino.id, this.getDinoById)}>
                     {dino.name}
                   </a>
                 </li>
