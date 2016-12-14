@@ -1,13 +1,17 @@
 /* src/App.css */
 
-.App {
-  margin: 0 auto;
-  max-width: 1000px;
-}
-.App h1 {
+.App-header {
   margin-bottom: 20px;
+}
+.App-header h1 {
+  margin: 0;
+  padding: 20px 0;
 }
 .loading {
   display: block;
   margin: 10px auto;
+}
+.App-content {
+  margin: 0 auto;
+  max-width: 1000px;
 }

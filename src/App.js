@@ -21,16 +21,20 @@ class App extends Component {
 
   render() {
     return(
-      <div className="App container-fluid">
-        <h1 className="text-center">Dinosaurs</h1>
-        <div className="row">
-          {
-            this.state.dinos ? (
-              <DinoList dinos={this.state.dinos} />
-            ) : (
-              <img className="loading" src={loading} alt="Loading..." />
-            )
-          }
+      <div className="App">
+        <header className="App-header bg-primary">
+          <h1 className="text-center">Dinosaurs</h1>
+        </header>
+        <div className="App-content container-fluid">
+          <div className="row">
+            {
+              this.state.dinos ? (
+                <DinoList dinos={this.state.dinos} />
+              ) : (
+                <img className="loading" src={loading} alt="Loading..." />
+              )
+            }
+          </div>
         </div>
       </div>
     );
