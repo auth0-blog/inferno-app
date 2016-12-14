@@ -4,13 +4,13 @@ import Inferno from 'inferno';
 import Component from 'inferno-component';
 
 class DinoDetail extends Component {
-  render() {
-    let dino = this.props.dino;
+  render(props) {
+    let dino = props.dino;
 
     return(
       <div className="DinoList col-sm-9">
         {
-          this.props.dino ? (
+          dino ? (
             <div className="list-group">
               <div className="list-group-item list-group-item-info">
                 <h3 className="list-group-item-heading text-center">{dino.name}</h3>

@@ -19,7 +19,7 @@ class App extends Component {
       });
   }
 
-  render() {
+  render(props, state) {
     return(
       <div className="App">
         <header className="App-header bg-primary">
@@ -28,8 +28,8 @@ class App extends Component {
         <div className="App-content container-fluid">
           <div className="row">
             {
-              this.state.dinos ? (
-                <DinoList dinos={this.state.dinos} />
+              state.dinos ? (
+                <DinoList dinos={state.dinos} />
               ) : (
                 <img className="loading" src={loading} alt="Loading..." />
               )

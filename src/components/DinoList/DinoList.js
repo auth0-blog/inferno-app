@@ -36,16 +36,16 @@ class DinoList extends Component {
       });
   }
 
-  render() {
+  render(props, state) {
     return(
       <div>
         <div className="col-sm-3">
           <ul className="DinoList">
             {
-              this.props.dinos.map((dino, idx) => (
+              props.dinos.map((dino, idx) => (
                 <li key={idx}>
                   <a
-                    className={this.state.active === idx ? 'active' : ''}
+                    className={state.active === idx ? 'active' : ''}
                     onClick={linkEvent(this, () => this.getDinoById(dino.id, idx))}>
                     {dino.name}
                   </a>
@@ -55,10 +55,10 @@ class DinoList extends Component {
           </ul>
         </div>
         {
-          this.state.loading ? (
+          state.loading ? (
             <img className="loading" src={loading} alt="Loading..." />
           ) : (
-            <DinoDetail dino={this.state.detail} />
+            <DinoDetail dino={state.detail} />
           )
         }
       </div>
