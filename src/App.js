@@ -67,17 +67,17 @@ class App extends Component {
     localStorage.removeItem('profile');
   }
 
-  render() {
+  render(props, state) {
     return(
       <div className="App">
         <header className="App-header bg-primary clearfix">
           <div className="App-auth pull-right">
             {
-              !this.state.idToken ? (
+              !state.idToken ? (
                 <Login lock={this.lock} />
               ) : (
                 <div className="App-auth-loggedIn">
-                  <User profile={this.state.profile} />
+                  <User profile={state.profile} />
                   <a
                     className="App-auth-loggedIn-logout"
                     onClick={linkEvent(this, this.logOut)}>Log Out</a>
@@ -90,8 +90,8 @@ class App extends Component {
         <div className="App-content container-fluid">
           <div className="row">
             {
-              this.state.dinos ? (
-                <DinoList dinos={this.state.dinos} />
+              state.dinos ? (
+                <DinoList dinos={state.dinos} />
               ) : (
                 <img className="loading" src={loading} alt="Loading..." />
               )
