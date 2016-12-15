@@ -10,6 +10,19 @@ import User from './components/User/User';
 import loading from './assets/raptor-loading.gif';
 import './App.css';
 
+function logOut(instance) {
+  // Remove token and profile from state
+  // (using instance passed in by linkEvent to preserve "this" context)
+  instance.setState({
+    idToken: null,
+    profile: null
+  });
+
+  // Remove token and profile from localStorage
+  localStorage.removeItem('id_token');
+  localStorage.removeItem('profile');
+}
+
 class App extends Component {
   constructor() {
     super();
@@ -54,19 +67,6 @@ class App extends Component {
       });
   }
 
-  logOut(instance) {
-    // Remove token and profile from state
-    // (using instance passed in by linkEvent to preserve "this" context)
-    instance.setState({
-      idToken: null,
-      profile: null
-    });
-
-    // Remove token and profile from localStorage
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('profile');
-  }
-
   render(props, state) {
     return(
       <div className="App">
@@ -80,7 +80,7 @@ class App extends Component {
                   <User profile={state.profile} />
                   <a
                     className="App-auth-loggedIn-logout"
-                    onClick={linkEvent(this, this.logOut)}>Log Out</a>
+                    onClick={linkEvent(this, logOut)}>Log Out</a>
                 </div>
               )
             }
