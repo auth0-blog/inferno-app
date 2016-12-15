@@ -4,8 +4,8 @@ import Inferno, { linkEvent } from 'inferno';
 import Component from 'inferno-component';
 import DinoDetail from './../DinoDetail/DinoDetail';
 import ApiService from './../../utils/ApiService';
+import Loading from './../Loading/Loading';
 import './DinoList.css';
-import loading from './../../assets/raptor-loading.gif';
 
 /* 
   This function is pulled out of the class to 
@@ -25,17 +25,26 @@ function getDinoById(obj) {
   // GET dino by ID
   // On resolve, set detail state and turn off loading
   ApiService.getDino(id)
-    .then(res => {
-      instance.setState({
-        detail: res,
-        loading: false
-      });
-    });
+    .then(
+      res => {
+        instance.setState({
+          detail: res,
+          loading: false,
+          error: false
+        });
+      },
+      error => {
+        instance.setState({
+          error: error,
+          loading: false
+        });
+      }
+    );
 }
 
 class DinoList extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     // Set default loading state to false
     this.state = {
@@ -61,13 +70,15 @@ class DinoList extends Component {
             }
           </ul>
         </div>
-        {
-          state.loading ? (
-            <img className="loading" src={loading} alt="Loading..." />
-          ) : (
-            <DinoDetail dino={state.detail} />
-          )
-        }
+        <div className="col-sm-9">
+          {
+            !state.loading && !state.error ? (
+              <DinoDetail dino={state.detail} />
+            ) : (
+              <Loading error={state.error} />
+            )
+          }
+        </div>
       </div>
     );
   }

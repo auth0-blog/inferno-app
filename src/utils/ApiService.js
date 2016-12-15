@@ -3,15 +3,13 @@
 // GET list of all dinosaurs from API
 function getDinoList() {
   return fetch(`/api/dinosaurs`)
-    .then(_verifyResponse)
-    .catch(_handleError);
+    .then(_verifyResponse, _handleError);
 }
 
 // GET a dinosaur's detail info from API by ID
 function getDino(id) {
   return fetch(`/api/dinosaur/${id}`)
-    .then(_verifyResponse)
-    .catch(_handleError);
+    .then(_verifyResponse, _handleError);
 }
 
 // Verify that the fetched response is JSON
@@ -25,8 +23,9 @@ function _verifyResponse(res) {
   }
 }
 
-// Throw an error
+// Handle fetch errors
 function _handleError(error) {
+  console.error('An error occurred:', error);
   throw error;
 }
 
