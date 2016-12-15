@@ -7,7 +7,7 @@ import ApiService from './utils/ApiService';
 import DinoList from './components/DinoList/DinoList';
 import Login from './components/Login/Login';
 import User from './components/User/User';
-import loading from './assets/raptor-loading.gif';
+import Loading from './components/Loading/Loading';
 import './App.css';
 
 function logOut(instance) {
@@ -59,12 +59,20 @@ class App extends Component {
 
     // GET list of dinosaurs from API
     ApiService.getDinoList()
-      .then(res => {
-        // Set state with fetched dinos list
-        this.setState({
-          dinos: res
-        });
-      });
+      .then(
+        res => {
+          // Set state with fetched dinos list
+          this.setState({
+            dinos: res,
+            error: false
+          });
+        },
+        error => {
+          this.setState({
+            error: error
+          });
+        }
+      );
   }
 
   render(props, state) {
@@ -93,7 +101,7 @@ class App extends Component {
               state.dinos ? (
                 <DinoList dinos={state.dinos} />
               ) : (
-                <img className="loading" src={loading} alt="Loading..." />
+                <Loading error={state.error} />
               )
             }
           </div>

@@ -8,7 +8,7 @@ class DinoDetail extends Component {
     let dino = props.dino;
 
     return(
-      <div className="DinoList col-sm-9">
+      <div className="DinoList">
         {
           dino ? (
             <div className="list-group">
