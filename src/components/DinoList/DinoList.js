@@ -11,10 +11,13 @@ import loading from './../../assets/raptor-loading.gif';
   This function is pulled out of the class to 
   demonstrate how we could easily use third-party APIs
 */
-function getDinoById(id) {
+function getDinoById(obj) {
+  const id = obj.id;
+  const instance = obj.instance;
+
   // Set loading state to true while data is being fetched
   // Set active state to index of clicked item
-  this.setState({
+  instance.setState({
     loading: true,
     active: id
   });
@@ -23,7 +26,7 @@ function getDinoById(id) {
   // On resolve, set detail state and turn off loading
   ApiService.getDino(id)
     .then(res => {
-      this.setState({
+      instance.setState({
         detail: res,
         loading: false
       });
@@ -38,9 +41,6 @@ class DinoList extends Component {
     this.state = {
       loading: false
     };
-
-    // Bind the get dino function to pass 'this' context for setState
-    this.getDinoById = getDinoById.bind(this);
   }
 
   render(props, state) {
@@ -53,7 +53,7 @@ class DinoList extends Component {
                 <li key={dino.id}>
                   <a
                     className={state.active === dino.id ? 'active' : ''}
-                    onClick={linkEvent(dino.id, this.getDinoById)}>
+                    onClick={linkEvent({id: dino.id, instance: this}, getDinoById)}>
                     {dino.name}
                   </a>
                 </li>
