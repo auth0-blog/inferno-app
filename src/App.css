@@ -7,10 +7,6 @@
   margin: 0;
   padding: 20px 0;
 }
-.loading {
-  display: block;
-  margin: 10px auto;
-}
 .App-content {
   margin: 0 auto;
   max-width: 1000px;
