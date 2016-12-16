@@ -1,14 +1,16 @@
 // src/utils/ApiService.js
 
+const _baseUrl = 'http://localhost:3001/api/';
+
 // GET list of all dinosaurs from API
 function getDinoList() {
-  return fetch(`/api/dinosaurs`)
+  return fetch(`${_baseUrl}dinosaurs`)
     .then(_verifyResponse, _handleError);
 }
 
 // GET a dinosaur's detail info from API by ID
 function getDino(id) {
-  return fetch(`/api/dinosaur/${id}`)
+  return fetch(`${_baseUrl}dinosaur/${id}`)
     .then(_verifyResponse, _handleError);
 }
 
