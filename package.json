@@ -15,6 +15,5 @@
     "build": "inferno-scripts build",
     "test": "inferno-scripts test --env=jsdom",
     "eject": "inferno-scripts eject"
-  },
-  "proxy": "http://localhost:3001"
+  }
 }
