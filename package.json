@@ -1,15 +1,15 @@
 {
-  "name": "inferno-app",
+  "name": "test-runthru",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "inferno-scripts": "0.7.5"
+    "inferno-scripts": "0.7.13"
   },
   "dependencies": {
     "auth0-lock": "^10.7.2",
     "bootstrap": "^3.3.7",
-    "inferno": "^1.0.0-beta32",
-    "inferno-component": "^1.0.0-beta32"
+    "inferno": "^1.0.0-beta33",
+    "inferno-component": "^1.0.0-beta33"
   },
   "scripts": {
     "start": "inferno-scripts start",
