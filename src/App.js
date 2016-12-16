@@ -35,7 +35,7 @@ class App extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     // Create Auth0 Lock instance
     this.lock = new Auth0Lock('[YOUR_CLIENT_ID]', '[YOUR_DOMAIN].auth0.com');
 
