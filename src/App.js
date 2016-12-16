@@ -63,11 +63,11 @@ class App extends Component {
         res => {
           // Set state with fetched dinos list
           this.setState({
-            dinos: res,
-            error: false
+            dinos: res
           });
         },
         error => {
+          // An error occurred, set state with error
           this.setState({
             error: error
           });
