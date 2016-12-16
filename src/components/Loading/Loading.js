@@ -2,7 +2,7 @@
 
 import Inferno from 'inferno';
 import Component from 'inferno-component';
-import loading from './../../assets/raptor-loading.gif';
+import loading from './raptor-loading.gif';
 
 class Loading extends Component {
   render(props, state) {
