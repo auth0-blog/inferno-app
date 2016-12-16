@@ -2,7 +2,7 @@
   "name": "inferno-app",
   "version": "0.1.0",
   "description": "Sample Inferno app with dinosaurs and Auth0",
-  "repository": "https://github.com/kmaida/inferno-app",
+  "repository": "https://github.com/auth0-blog/inferno-app",
   "license": "MIT",
   "author": "Auth0",
   "devDependencies": {
