@@ -1,4 +1,4 @@
-// src/components/DinoDetail.js
+// src/components/DinoDetail/DinoDetail.js
 
 import Inferno from 'inferno';
 import Component from 'inferno-component';

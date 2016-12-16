@@ -1,4 +1,4 @@
-// src/components/DinoList.js
+// src/components/DinoList/DinoList.js
 
 import Inferno, { linkEvent } from 'inferno';
 import Component from 'inferno-component';
