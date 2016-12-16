@@ -1,7 +1,10 @@
 {
-  "name": "test-runthru",
+  "name": "inferno-app",
   "version": "0.1.0",
-  "private": true,
+  "description": "Sample Inferno app with dinosaurs and Auth0",
+  "repository": "https://github.com/kmaida/inferno-app",
+  "license": "MIT",
+  "author": "Auth0",
   "devDependencies": {
     "inferno-scripts": "0.7.13"
   },
