@@ -6,7 +6,7 @@ import loading from './raptor-loading.gif';
 import './Loading.css';
 
 class Loading extends Component {
-  render(props, state) {
+  render(props) {
     return(
       <div className="Loading">
         {
