@@ -43,7 +43,7 @@ class App extends Component {
     this.lock.on('authenticated', (authResult) => {
       // Use the returned token to fetch user profile
       this.lock.getUserInfo(authResult.accessToken, (error, profile) => {
-        if (error) { return }
+        if (error) { return; }
 
         // Save token and profile to state
         this.setState({
