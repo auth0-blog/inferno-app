@@ -14,7 +14,7 @@ Build a simple [Inferno](https://github.com/trueadm/inferno) app that calls a [N
 
 2) Clone [sample-nodeserver-dinos](https://github.com/auth0-blog/sample-nodeserver-dinos) into a `server` folder in the root of the project
 
-3) Install the server dependencies and start the API server:
+3) Install the API dependencies and start the API server:
 
 ```
 $ cd server
@@ -22,7 +22,7 @@ $ npm install
 $ node server.js
 ```
 
-4) Start the development app server from the root of the project:
+4) Start the development Inferno app server from the root of the project:
 
 ```
 $ npm start
