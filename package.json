@@ -1,6 +1,6 @@
 {
   "name": "inferno-app",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Sample Inferno app with dinosaurs and Auth0",
   "repository": "https://github.com/auth0-blog/inferno-app",
   "license": "MIT",
@@ -11,8 +11,8 @@
   "dependencies": {
     "auth0-lock": "^10.7.2",
     "bootstrap": "^3.3.7",
-    "inferno": "^1.0.0-beta33",
-    "inferno-component": "^1.0.0-beta33"
+    "inferno": "^1.1.1",
+    "inferno-component": "^1.1.1"
   },
   "scripts": {
     "start": "inferno-scripts start",
