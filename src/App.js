@@ -1,6 +1,6 @@
 // src/App.js
 
-import Inferno, { linkEvent } from 'inferno';
+import { linkEvent } from 'inferno';
 import Component from 'inferno-component';
 import Auth0Lock from 'auth0-lock';
 import ApiService from './utils/ApiService';
