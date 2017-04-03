@@ -1,6 +1,5 @@
 // src/components/User/User.js
 
-import Inferno from 'inferno';
 import Component from 'inferno-component';
 import './User.css';
 

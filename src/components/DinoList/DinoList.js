@@ -1,6 +1,6 @@
 // src/components/DinoList/DinoList.js
 
-import Inferno, { linkEvent } from 'inferno';
+import { linkEvent } from 'inferno';
 import Component from 'inferno-component';
 import DinoDetail from './../DinoDetail/DinoDetail';
 import ApiService from './../../utils/ApiService';

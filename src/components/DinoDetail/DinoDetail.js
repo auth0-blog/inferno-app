@@ -1,6 +1,5 @@
 // src/components/DinoDetail/DinoDetail.js
 
-import Inferno from 'inferno';
 import Component from 'inferno-component';
 
 class DinoDetail extends Component {

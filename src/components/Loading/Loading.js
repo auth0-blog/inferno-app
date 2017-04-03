@@ -1,6 +1,5 @@
 // src/components/Loading/Loading.js
 
-import Inferno from 'inferno';
 import Component from 'inferno-component';
 import loading from './raptor-loading.gif';
 import './Loading.css';

@@ -1,6 +1,6 @@
 // src/components/Login/Login.js
 
-import Inferno, { linkEvent } from 'inferno';
+import { linkEvent } from 'inferno';
 import Component from 'inferno-component';
 import './Login.css';
 
