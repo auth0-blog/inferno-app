@@ -4,17 +4,22 @@ import { linkEvent } from 'inferno';
 import Component from 'inferno-component';
 import './Login.css';
 
-// Use the "lock" prop passed in App.js to
-// show the Auth0 Lock widget so users can log in
-function showLock(instance) {
-  instance.props.lock.show();
+// Use the "auth0" prop passed in App.js to
+// call authorize method to show hosted Auth0 Lock widget so users can log in
+function login(instance) {
+  instance.props.auth0.authorize({
+    responseType: 'token id_token',
+    redirectUri: 'http://localhost:3000/',
+    audience: 'http://localhost:3001/api/',
+    scope: 'openid profile'
+  });
 }
 
 class Login extends Component {
   render() {
     return(
       <div className="Login">
-        <a onClick={linkEvent(this, showLock)}>Log In</a>
+        <a onClick={linkEvent(this, login)}>Log In</a>
       </div>
     );
   }

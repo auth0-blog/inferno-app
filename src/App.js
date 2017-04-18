@@ -2,7 +2,7 @@
 
 import { linkEvent } from 'inferno';
 import Component from 'inferno-component';
-import Auth0Lock from 'auth0-lock';
+import auth0 from 'auth0-js';
 import ApiService from './utils/ApiService';
 import DinoList from './components/DinoList/DinoList';
 import Login from './components/Login/Login';
@@ -37,24 +37,27 @@ class App extends Component {
 
   componentDidMount() {
     // Create Auth0 Lock instance
-    this.lock = new Auth0Lock('[YOUR_CLIENT_ID]', '[YOUR_DOMAIN].auth0.com');
+    this.auth0 = new auth0.WebAuth({
+      clientID: '[YOUR_CLIENT_ID]',
+      domain: '[YOUR_CLIENT_DOMAIN]'
+    });
 
-    // On successful authentication:
-    this.lock.on('authenticated', (authResult) => {
-      // Use the returned token to fetch user profile
-      this.lock.getUserInfo(authResult.accessToken, (error, profile) => {
-        if (error) { return; }
+    // When Auth0 hash parsed, get profile
+    this.auth0.parseHash((err, authResult) => {
+      if (authResult && authResult.idToken) {
+        // Use access token to retrieve user's profile and set session
+        this.auth0.client.userInfo(authResult.idToken, (err, profile) => {
+          // Save token and profile to state
+          this.setState({
+            idToken: authResult.accessToken,
+            profile: profile
+          });
 
-        // Save token and profile to state
-        this.setState({
-          idToken: authResult.accessToken,
-          profile: profile
+          // Save token and profile to localStorage
+          localStorage.setItem('id_token', this.state.idToken);
+          localStorage.setItem('profile', JSON.stringify(profile));
         });
-
-        // Save token and profile to localStorage
-        localStorage.setItem('id_token', this.state.idToken);
-        localStorage.setItem('profile', JSON.stringify(profile));
-      });
+      }
     });
 
     // GET list of dinosaurs from API
@@ -82,7 +85,7 @@ class App extends Component {
           <div className="App-auth pull-right">
             {
               !state.idToken ? (
-                <Login lock={this.lock} />
+                <Login auth0={this.auth0} />
               ) : (
                 <div className="App-auth-loggedIn">
                   <User profile={state.profile} />
