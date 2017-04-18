@@ -5,7 +5,8 @@ import Component from 'inferno-component';
 import './Login.css';
 
 // Use the "auth0" prop passed in App.js to
-// call authorize method to show hosted Auth0 Lock widget so users can log in
+// call authorize method to show hosted Auth0
+// Lock widget so users can log in
 function login(instance) {
   instance.props.auth0.authorize({
     responseType: 'token id_token',
