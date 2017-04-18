@@ -20,6 +20,7 @@ function logOut(instance) {
 
   // Remove token and profile from localStorage
   localStorage.removeItem('id_token');
+  localStorage.removeItem('access_token');
   localStorage.removeItem('profile');
 }
 
@@ -31,13 +32,12 @@ class App extends Component {
     // check for existing token and profile
     this.state = {
       idToken: localStorage.getItem('id_token'),
-      accessToken: localStorage.getItem('access_token'),
       profile: JSON.parse(localStorage.getItem('profile'))
     };
   }
 
   componentDidMount() {
-    // Create Auth0 Lock instance
+    // Create Auth0 WebAuth instance
     this.auth0 = new auth0.WebAuth({
       clientID: '[YOUR_CLIENT_ID]',
       domain: '[YOUR_CLIENT_DOMAIN]'
@@ -55,12 +55,12 @@ class App extends Component {
           // Save tokens and profile to state
           this.setState({
             idToken: authResult.idToken,
-            accessToken: authResult.accessToken,
             profile: profile
           });
 
           // Save tokens and profile to localStorage
           localStorage.setItem('id_token', this.state.idToken);
+          // access_token should be used to protect API requests using an Authorization header
           localStorage.setItem('access_token', this.state.accessToken);
           localStorage.setItem('profile', JSON.stringify(profile));
         });
