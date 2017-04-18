@@ -2,5 +2,11 @@
 {
 	"editor.tabSize": 2,
 	"editor.detectIndentation": false,
-	"editor.insertSpaces": true
+	"editor.insertSpaces": true,
+  "workbench.experimental.colorCustomizations": {
+    "statusBarBackground": "#e41f1c",
+    "titleBarActiveBackground": "#e41f1c",
+    "titleBarActiveForeground": "#ffffff",
+    "activityBadgeBackground": "#e41f1c"
+  }
 }
