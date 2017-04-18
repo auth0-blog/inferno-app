@@ -47,17 +47,19 @@ class App extends Component {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.idToken && authResult.accessToken) {
         // Use access token to retrieve user's profile and set session
+        // If you wanted to protect API requests, you'd use the access token to do so!
+        // For more information, please see: https://auth0.com/docs/api-auth/grant/implicit
         this.auth0.client.userInfo(authResult.accessToken, (err, profile) => {
           window.location.hash = '';
 
-          // Save token and profile to state
+          // Save tokens and profile to state
           this.setState({
             idToken: authResult.idToken,
             accessToken: authResult.accessToken,
             profile: profile
           });
 
-          // Save token and profile to localStorage
+          // Save tokens and profile to localStorage
           localStorage.setItem('id_token', this.state.idToken);
           localStorage.setItem('access_token', this.state.accessToken);
           localStorage.setItem('profile', JSON.stringify(profile));
