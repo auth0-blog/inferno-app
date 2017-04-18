@@ -6,7 +6,7 @@ import './User.css';
 class User extends Component {
   render(props) {
     let profile = props.profile;
-    let idp = profile.user_id.split('|')[0];
+    let idp = profile.sub.split('|')[0];
 
     return(
       <div className="User" title={idp}>

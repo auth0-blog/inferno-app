@@ -31,6 +31,7 @@ class App extends Component {
     // check for existing token and profile
     this.state = {
       idToken: localStorage.getItem('id_token'),
+      accessToken: localStorage.getItem('access_token'),
       profile: JSON.parse(localStorage.getItem('profile'))
     };
   }
@@ -44,17 +45,21 @@ class App extends Component {
 
     // When Auth0 hash parsed, get profile
     this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.idToken) {
+      if (authResult && authResult.idToken && authResult.accessToken) {
         // Use access token to retrieve user's profile and set session
-        this.auth0.client.userInfo(authResult.idToken, (err, profile) => {
+        this.auth0.client.userInfo(authResult.accessToken, (err, profile) => {
+          window.location.hash = '';
+
           // Save token and profile to state
           this.setState({
-            idToken: authResult.accessToken,
+            idToken: authResult.idToken,
+            accessToken: authResult.accessToken,
             profile: profile
           });
 
           // Save token and profile to localStorage
           localStorage.setItem('id_token', this.state.idToken);
+          localStorage.setItem('access_token', this.state.accessToken);
           localStorage.setItem('profile', JSON.stringify(profile));
         });
       }
